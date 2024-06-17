@@ -45,4 +45,7 @@ export default class UserService{
             throw new ForbiddenException('Invalid credentials');
         }
     }
+    async findById(id:number): Promise<User>{
+        return await this.userRepository.findOneOrFail({where:{id}});
+    }
 }
