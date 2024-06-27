@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dbConnection } from './config/database.config';
 import { UserModule } from './user/user.module';
+import { EmailModule } from './email/email.module';
 
 
 @Module({
@@ -12,7 +13,7 @@ import { UserModule } from './user/user.module';
       isGlobal:true,
     }) , TypeOrmModule.forRootAsync(dbConnection),
     UserModule,
-    
+    EmailModule,
   ],
   controllers: [],
   providers: [],

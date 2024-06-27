@@ -1,5 +1,6 @@
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModuleAsyncOptions, TypeOrmModuleOptions } from "@nestjs/typeorm";
+import Email from "src/email/email.entity";
 import User from "src/user/user.entity";
 
 
@@ -13,7 +14,7 @@ class DBConfig {
             username:configService.get("DB_USERNAME"),
             password:configService.get("DB_PASSWORD"),
             database:configService.get("DB_DATABASE"),
-            entities:[User],
+            entities:[User,Email],
             autoLoadEntities:true,
             synchronize:true,
             logging:true,

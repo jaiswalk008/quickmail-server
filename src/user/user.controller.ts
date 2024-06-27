@@ -1,7 +1,8 @@
-import { Body, Controller, Post, ValidationPipe} from "@nestjs/common";
+import { Body, Controller, Post, UseGuards, ValidationPipe} from "@nestjs/common";
 import CreateUserDTO from "./dto/create-user.dto";
 import UserService from "./user.service";
 import UpdateUserDto from "./dto/update-user.dto";
+import AuthGuard from "src/guards/authenticate.guard";
 
 @Controller()
 export class UserController{
@@ -15,4 +16,6 @@ export class UserController{
     login(@Body(ValidationPipe) user:UpdateUserDto){
         return this.userService.login(user);
     }
+    // @UseGuards(AuthGuard)
+
 }
