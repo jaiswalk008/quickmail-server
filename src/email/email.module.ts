@@ -8,6 +8,7 @@ import User from "src/user/user.entity";
 import { JwtModule, JwtService } from "@nestjs/jwt";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import AuthGuard from "src/guards/authenticate.guard";
+import SendEmail from "./sendEmail";
 
 @Module({
     imports:[TypeOrmModule.forFeature([Email,User]),ConfigModule.forRoot() ,
@@ -19,7 +20,7 @@ import AuthGuard from "src/guards/authenticate.guard";
         })
     })],
     controllers:[EmailController],
-    providers:[EmailService,UserService, AuthGuard],
+    providers:[EmailService,UserService, AuthGuard,SendEmail],
     
 })
 export class EmailModule{}

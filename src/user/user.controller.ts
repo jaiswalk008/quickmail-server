@@ -8,12 +8,12 @@ import AuthGuard from "src/guards/authenticate.guard";
 export class UserController{
     constructor(private  userService:UserService){}
     @Post('/signup')
-    signup(@Body(ValidationPipe) user:CreateUserDTO){
+    signup(@Body() user:any){
         return this.userService.signup(user);
     }
 
     @Post('/login')
-    login(@Body(ValidationPipe) user:UpdateUserDto){
+    login(@Body() user:any){
         return this.userService.login(user);
     }
     // @UseGuards(AuthGuard)
